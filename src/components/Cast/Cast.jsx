@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as api from "../../services/apiService";
 import css from "./Cast.module.css";
-import noPhoto from "../../img/noPhoto.png";
 import { DiRedhat } from "react-icons/di";
 
 
