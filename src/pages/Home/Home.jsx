@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { MoviesList } from "components/MoviesList/MoviesList";
 import * as API from "../../services/apiService";
+import css from './Home.module.css'
 
 export const Home = () => {
   const [moviesList, setMoviesList] = useState([]);

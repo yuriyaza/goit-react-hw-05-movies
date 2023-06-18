@@ -4,6 +4,7 @@ import { Movies } from "pages/Movies/Movies";
 import { MovieDetails } from "components/MovieDetails/MovieDetails";
 import { Cast } from "components/Cast/Cast";
 import { Reviews } from "components/Reviews/Reviews";
+import css from './App.module.css'
 
 export const App = () => {
   return (
@@ -15,15 +16,19 @@ export const App = () => {
         </nav>
       </header>
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/movies" element={<Movies />} />
+        <section>
+          <div className={css.container}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/movies" element={<Movies />} />
 
-          <Route path="/movies/:movieId" element={<MovieDetails />}>
-            <Route path="/movies/:movieId/cast" element={<Cast />} />
-            <Route path="/movies/:movieId/reviews" element={<Reviews />} />
-          </Route>
-        </Routes>
+              <Route path="/movies/:movieId" element={<MovieDetails />}>
+                <Route path="/movies/:movieId/cast" element={<Cast />} />
+                <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+              </Route>
+            </Routes>
+          </div>
+        </section>
       </main>
     </>
   );

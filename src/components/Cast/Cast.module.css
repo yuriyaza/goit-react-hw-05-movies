@@ -1,3 +1,25 @@
+
+.castList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 20px;
+}
+
+.castItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  text-align: center;
+}
+
+.character {
+  font-size: 14px;
+  color: #808080;
+}
+
 .photo {
   width: 100px;
+  height: 150px;
 }
+

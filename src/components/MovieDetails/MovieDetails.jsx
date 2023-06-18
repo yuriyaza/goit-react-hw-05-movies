@@ -20,25 +20,35 @@ export const MovieDetails = () => {
 
   return (
     <>
-      {poster_path && (
-        <img
-          className={css.poster}
-          src={`https://image.tmdb.org/t/p/original${poster_path}`}
-          alt={title}
-        />
-      )}
-      <h2>
-        {title} ({releaseDate})
-      </h2>
-      <p>User Score: {vote_average} </p>
-      <h3>Overview</h3>
-      <p>{overview}</p>
-      <h3>Genres</h3>
-      <p>{genres && genres.map((genre) => genre.name).join(", ")}</p>
+      <div className={css.wrapper}>
+        <div className={css.poster}>
+          {poster_path && (
+            <img
+              src={`https://image.tmdb.org/t/p/original${poster_path}`}
+              alt={title}
+            />
+          )}
+        </div>
+        <div className={css.details}>
+          <h2>
+            {title} ({releaseDate})
+          </h2>
+          <p className={css.description}>User Score: {vote_average} </p>
+          <h3>Overview</h3>
+          <p className={css.description}>{overview}</p>
+          <h3>Genres</h3>
+          <p className={css.description}>
+            {genres && genres.map((genre) => genre.name).join(", ")}
+          </p>
+        </div>
+      </div>
 
-      <NavLink to="cast">Cast</NavLink>
-      <NavLink to="reviews">Reviews</NavLink>
-
+      <div className={css.tabs}>
+        <NavLink className={css.temp} to="cast">
+          Cast
+        </NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
+      </div>
       <Outlet />
     </>
   );

@@ -18,9 +18,7 @@ export async function getTrending() {
 
 export async function searchMovies(query) {
   try {
-    return await axios.get(
-      `/search/movie?query=${query}&language=en-US&page=1`
-    );
+    return await axios.get( `/search/movie?query=${query}&language=en-US&page=1` );
   }
   catch (error) {
     Notify.failure(`${error.code}: ${error.message}`);

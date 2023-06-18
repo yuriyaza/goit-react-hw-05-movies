@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import * as API from "../../services/apiService";
+import * as api from "../../services/apiService";
 import css from "./Cast.module.css";
 import noPhoto from "../../img/noPhoto.png";
+import { DiRedhat } from "react-icons/di";
+
+
+
 
 export const Cast = () => {
   const { movieId } = useParams();
@@ -10,28 +14,30 @@ export const Cast = () => {
 
   useEffect(() => {
     async function getData() {
-      const response = await API.getMovieCast(movieId);
+      const response = await api.getMovieCast(movieId);
       setCast(response.data.cast);
     }
     getData();
   }, [movieId]);
 
   return (
-    <ul>
+    <ul className={css.castList}>
       {cast.map(({ id, name, profile_path, character }) => {
         return (
-          <li key={id}>
-            {profile_path ? (
-              <img
-                className={css.photo}
-                src={`https://image.tmdb.org/t/p/original${profile_path}`}
-                alt={name}
-              />
-            ) : (
-              <img className={css.photo} src={`${noPhoto}`} alt={name} />
-            )}
+          <li className={css.castItem} key={id}>
+            <div className={css.photo}>
+              {profile_path ? (
+                <img
+                  src={`https://image.tmdb.org/t/p/original${profile_path}`}
+                  alt={name}
+                />
+              ) : (
+                // <img className={css.photo} src={`${noPhoto}`} alt={name} />
+                  <DiRedhat size={100 } />
+              )}
+            </div>
             <p>{name}</p>
-            <p>Character: {character}</p>
+            <p className={css.character}>Character: {character}</p>
           </li>
         );
       })}
