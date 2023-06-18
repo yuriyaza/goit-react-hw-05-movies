@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams, NavLink, Outlet } from "react-router-dom";
-import * as API from "../../services/api";
+import * as API from "../../services/apiService";
 import css from "./MovieDetails.module.css";
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState([]);
-  const { title, poster_path, overview, genres} = movie;
+  const { title, poster_path, overview, genres, release_date, vote_average } =
+    movie;
+  const releaseDate = new Date(release_date).getFullYear();
 
   useEffect(() => {
     async function getData() {
@@ -25,7 +27,10 @@ export const MovieDetails = () => {
           alt={title}
         />
       )}
-      <h2>{title}</h2>
+      <h2>
+        {title} ({releaseDate})
+      </h2>
+      <p>User Score: {vote_average} </p>
       <h3>Overview</h3>
       <p>{overview}</p>
       <h3>Genres</h3>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import * as API from "../../services/api";
+import * as API from "../../services/apiService";
 
 export const Reviews = () => {
   const { movieId } = useParams();
@@ -15,6 +15,7 @@ export const Reviews = () => {
   }, [movieId]);
 
   return (
+    review.length>0 ?
     <ul>
       {review.map(({ id, author, content }) => {
         return (
@@ -24,6 +25,7 @@ export const Reviews = () => {
           </li>
         );
       })}
-    </ul>
+      </ul>
+      : <p>We don't have any reviews for this movie</p>
   );
 };
