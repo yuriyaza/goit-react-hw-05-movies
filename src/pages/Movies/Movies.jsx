@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { MoviesList } from "components/MoviesList/MoviesList";
-import * as API from "../../services/apiService";
 import { Notify } from "notiflix";
+import { BiSearchAlt } from "react-icons/bi";
+import { MoviesList } from "components/MoviesList/MoviesList";
+import * as api from "../../services/apiService";
+import css from "./Movies.module.css";
 
 Notify.init({ showOnlyTheLastOne: true, clickToClose: true });
 
@@ -15,9 +17,9 @@ export const Movies = () => {
 
   async function onFormSubmit(e) {
     e.preventDefault();
-    if (query === '') return;
-    const response = await API.searchMovies(query);
-    
+    if (query === "") return;
+    const response = await api.searchMovies(query);
+
     setMoviesList(response.data.results);
     if (response.data.results.length === 0) Notify.failure("Movies not found");
   }
@@ -25,8 +27,15 @@ export const Movies = () => {
   return (
     <>
       <form onSubmit={onFormSubmit}>
-        <input type="text" value={query} onChange={onInputChange} />
-        <button type="submit">Пошук</button>
+        <input
+          className={css.input}
+          type="text"
+          value={query}
+          onChange={onInputChange}
+        />
+        <button className={css.searchButton} type="submit">
+          <BiSearchAlt size={20} color={"#ffffff"} />
+        </button>
       </form>
 
       <MoviesList movies={moviesList} />

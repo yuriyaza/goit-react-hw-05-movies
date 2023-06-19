@@ -7,10 +7,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000000;
-  color: #d3d3d3;
   line-height: 1.4;
-  }
+  color: #d3d3d3;
+  background-color: #000000;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -42,7 +42,6 @@ a {
 a:hover,
 a:focus {
   color: orange;
-
 }
 
 a.active {

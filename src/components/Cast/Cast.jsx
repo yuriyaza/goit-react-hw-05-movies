@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { DiRedhat } from "react-icons/di";
 import * as api from "../../services/apiService";
 import css from "./Cast.module.css";
-import { DiRedhat } from "react-icons/di";
-
-
-
 
 export const Cast = () => {
   const { movieId } = useParams();
@@ -31,8 +28,7 @@ export const Cast = () => {
                   alt={name}
                 />
               ) : (
-                // <img className={css.photo} src={`${noPhoto}`} alt={name} />
-                  <DiRedhat size={100 } />
+                <DiRedhat size={100} />
               )}
             </div>
             <p>{name}</p>
