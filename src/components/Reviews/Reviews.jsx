@@ -21,7 +21,12 @@ export const Reviews = () => {
         return (
           <li key={id}>
             <p>Author: {author}</p>
-            <p className={css.description}>{content}</p>
+
+            {/* Поле content может содержать встроенную html-разметку, */}
+            {/* например <b>выделенный</b> и обычный текст. */}
+            {/* Поэтому используем dangerouslySetInnerHTML. */}
+            <p className={css.description} dangerouslySetInnerHTML={{ __html: `${content}`, }} />
+
           </li>
         );
       })}
