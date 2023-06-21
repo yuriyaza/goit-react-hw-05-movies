@@ -21,6 +21,34 @@ img {
   color: #808080;
 }
 
+.description.last {
+  margin-bottom: 20px;
+}
+
+.backLink {
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 20px 4px 15px;
+
+  color: orange;
+  background-color: transparent;
+  border: 1.5px solid orange;
+  border-radius: 50px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.backLink:hover,
+.backLink:focus {
+  opacity: 1;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
 .tabs {
   height: 30px;
   margin-bottom: 20px;

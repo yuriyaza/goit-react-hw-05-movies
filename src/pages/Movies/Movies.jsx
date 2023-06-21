@@ -11,10 +11,10 @@ Notify.init({ showOnlyTheLastOne: true, clickToClose: true });
 export const Movies = ({ isLoading }) => {
   const [urlParams, setUrlParams] = useSearchParams({});
   const query = urlParams.get('search');
-
+  
   const [queryString, setQueryString] = useState(query ? query : '');
   const [moviesList, setMoviesList] = useState([]);
-
+  
   function onInputChange(e) {
     setQueryString(e.target.value);
   }
