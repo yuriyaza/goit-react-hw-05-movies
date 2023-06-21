@@ -1,18 +1,23 @@
-import { useState, useEffect } from "react";
-import { MoviesList } from "components/MoviesList/MoviesList";
-import * as api from "../../services/apiService";
-import css from "./Home.module.css";
+import { useState, useEffect } from 'react';
+import { MoviesList } from 'components/MoviesList/MoviesList';
+import * as api from '../../services/apiService';
+import css from './Home.module.css';
 
-export const Home = () => {
+export const Home = ({ isLoading }) => {
   const [moviesList, setMoviesList] = useState([]);
 
   useEffect(() => {
     async function getData() {
-      const result = await api.getTrending();
-      setMoviesList(result.data.results);
+      try {
+        isLoading(true);
+        const result = await api.getTrending();
+        setMoviesList(result.data.results);
+      } finally {
+        isLoading(false);
+      }
     }
     getData();
-  }, []);
+  }, [isLoading]);
 
   return (
     <>

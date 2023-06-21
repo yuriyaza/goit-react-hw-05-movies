@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import { BiCameraMovie } from "react-icons/bi";
-import css from "./MoviesList.module.css";
+import { Link } from 'react-router-dom';
+import { BiCameraMovie } from 'react-icons/bi';
+import css from './MoviesList.module.css';
 
 export const MoviesList = ({ movies }) => {
   return (

@@ -4,7 +4,6 @@ import { Notify } from "notiflix";
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
 axios.defaults.headers.common["Authorization"] =
   "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZjJhZTkwYzA1YjE1NjAwZGNlOTQyODUzZTljMDVlYyIsInN1YiI6IjY0OGNjNTY3YzNjODkxMDEyZDVjZWY4MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.a16iPsTvimiRDA_BdScTTc0a6kzeHOdxxdEjtFmw7IU";
-axios.defaults.timeout = 5000;
 
 export async function getTrending() {
   try {
@@ -49,6 +48,7 @@ export async function getMovieReviews(movie_id) {
 }
 
 Notify.init({ showOnlyTheLastOne: true, clickToClose: true });
+
 function showError(error) {
   Notify.failure(`${error.code}: ${error.message}`);
 }

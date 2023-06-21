@@ -3,7 +3,7 @@ import { useParams, NavLink, Outlet } from "react-router-dom";
 import * as api from "../../services/apiService";
 import css from "./MovieDetails.module.css";
 
-export const MovieDetails = () => {
+export const MovieDetails = ({ isLoading }) => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
   const { title, poster_path, overview, genres, release_date, vote_average } =
@@ -12,11 +12,16 @@ export const MovieDetails = () => {
 
   useEffect(() => {
     async function getData() {
-      const response = await api.getMovieDetails(movieId);
-      setMovie(response.data);
+      try {
+        isLoading(true);
+        const response = await api.getMovieDetails(movieId);
+        setMovie(response.data);
+      } finally {
+        isLoading(false);
+      }
     }
     getData();
-  }, [movieId]);
+  }, [movieId, isLoading]);
 
   return (
     Object.entries(movie).length !== 0 && (
