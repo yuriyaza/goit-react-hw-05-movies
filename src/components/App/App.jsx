@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink, Routes, Route, useLocation } from 'react-router-dom';
+import { NavLink, Routes, Route } from 'react-router-dom';
 import { Home } from 'pages/Home/Home';
 import { Movies } from 'pages/Movies/Movies';
 import { MovieDetails } from 'components/MovieDetails/MovieDetails';
