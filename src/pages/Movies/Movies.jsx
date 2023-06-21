@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Notify } from 'notiflix';
 import { BiSearchAlt } from 'react-icons/bi';
-import { MoviesList } from 'components/MoviesList/MoviesList';
+import MoviesList from 'components/MoviesList/MoviesList';
 import * as api from '../../services/apiService';
 import css from './Movies.module.css';
 
 Notify.init({ showOnlyTheLastOne: true, clickToClose: true });
 
-export const Movies = ({ isLoading }) => {
+const Movies = ({ isLoading }) => {
   const [urlParams, setUrlParams] = useSearchParams({});
   const query = urlParams.get('search');
-  
+
   const [queryString, setQueryString] = useState(query ? query : '');
   const [moviesList, setMoviesList] = useState([]);
-  
+
   function onInputChange(e) {
     setQueryString(e.target.value);
   }
@@ -24,7 +24,7 @@ export const Movies = ({ isLoading }) => {
     setUrlParams(queryString.trim() !== '' ? { search: queryString } : {});
 
     if (queryString.trim() === '') {
-      Notify.warning('Enter the movie title to search');
+      Notify.warning('Please enter movie title to search');
       setMoviesList([]);
     }
   }
@@ -38,7 +38,7 @@ export const Movies = ({ isLoading }) => {
         const response = await api.searchMovies(query);
         setMoviesList(response.data.results);
 
-        if (response.data.results.length === 0) Notify.failure('Movies not found');
+        if (response.data.results.length === 0) Notify.failure('Sorry, this movie not found');
       } finally {
         isLoading(false);
       }
@@ -59,3 +59,5 @@ export const Movies = ({ isLoading }) => {
     </>
   );
 };
+
+export default Movies;

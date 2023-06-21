@@ -1,7 +1,7 @@
 import { FallingLines } from 'react-loader-spinner';
 import css from './Spinner.module.css';
 
-export const Spinner = () => {
+const Spinner = () => {
   return (
     <div className={css.backdrop}>
       <div className={css.spinner}>
@@ -10,3 +10,5 @@ export const Spinner = () => {
     </div>
   );
 };
+
+export default Spinner;

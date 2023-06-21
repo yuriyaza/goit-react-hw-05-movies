@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useParams, useLocation, NavLink, Outlet } from 'react-router-dom';
 import { TiArrowBackOutline } from 'react-icons/ti';
+import Spinner from 'components/Spinner/Spinner';
 import * as api from '../../services/apiService';
 import css from './MovieDetails.module.css';
 
-export const MovieDetails = ({ isLoading }) => {
+const MovieDetails = ({ isLoading }) => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
   const { title, poster_path, overview, genres, release_date, vote_average } = movie;
@@ -51,9 +52,12 @@ export const MovieDetails = ({ isLoading }) => {
           <NavLink to='cast'>Cast</NavLink>
           <NavLink to='reviews'>Reviews</NavLink>
         </div>
-
-        <Outlet />
+        <Suspense fallback={<Spinner />}>
+          <Outlet />
+        </Suspense>
       </>
     )
   );
 };
+
+export default MovieDetails;

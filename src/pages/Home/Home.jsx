@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { MoviesList } from 'components/MoviesList/MoviesList';
+import { useState, useEffect, lazy } from 'react';
+import MoviesList from 'components/MoviesList/MoviesList';
 import * as api from '../../services/apiService';
 import css from './Home.module.css';
 
-export const Home = ({ isLoading }) => {
+const Home = ({ isLoading }) => {
   const [moviesList, setMoviesList] = useState([]);
 
   useEffect(() => {
@@ -26,3 +26,5 @@ export const Home = ({ isLoading }) => {
     </>
   );
 };
+
+export default Home;

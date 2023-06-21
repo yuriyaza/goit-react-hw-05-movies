@@ -1,7 +1,7 @@
 import { CiWarning } from 'react-icons/ci';
 import css from './NotFound.module.css';
 
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <div className={css.wrapper}>
       <CiWarning className={css.icon} size={75} />
@@ -9,3 +9,5 @@ export const NotFound = () => {
     </div>
   );
 };
+
+export default NotFound;

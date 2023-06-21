@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import * as api from '../../services/apiService';
 import css from './Reviews.module.css';
 
-export const Reviews = ({ isLoading }) => {
+const Reviews = ({ isLoading }) => {
   const { movieId } = useParams();
   const [review, setReview] = useState([]);
 
@@ -40,3 +40,5 @@ export const Reviews = ({ isLoading }) => {
     <p>We don't have any reviews for this movie</p>
   );
 };
+
+export default Reviews;

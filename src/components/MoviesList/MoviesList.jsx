@@ -2,7 +2,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { BiCameraMovie } from 'react-icons/bi';
 import css from './MoviesList.module.css';
 
-export const MoviesList = ({ movies }) => {
+const MoviesList = ({ movies }) => {
   const location = useLocation();
 
   return (
@@ -26,3 +26,5 @@ export const MoviesList = ({ movies }) => {
     </>
   );
 };
+
+export default MoviesList;
