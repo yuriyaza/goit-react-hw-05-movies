@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy } from 'react';
+import { useState, useEffect } from 'react';
 import MoviesList from 'components/MoviesList/MoviesList';
 import * as api from '../../services/apiService';
 import css from './Home.module.css';

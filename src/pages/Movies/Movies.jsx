@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Notify } from 'notiflix';
 import { BiSearchAlt } from 'react-icons/bi';
