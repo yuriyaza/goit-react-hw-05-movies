@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
-import { useParams, useLocation, NavLink, Outlet } from 'react-router-dom';
+import { useParams, useLocation, Link, NavLink, Outlet } from 'react-router-dom';
 import { TiArrowBackOutline } from 'react-icons/ti';
 import Spinner from 'components/Spinner/Spinner';
 import * as api from '../../services/apiService';
@@ -41,10 +41,10 @@ const MovieDetails = ({ isLoading }) => {
             <p className={css.description}>{overview}</p>
             <h3>Genres</h3>
             <p className={`${css.description} ${css.last}`}>{genres.map(genre => genre.name).join(', ')}</p>
-            <NavLink className={css.backLink} to={backLinkURL.current}>
+            <Link className={css.backLink} to={backLinkURL.current}>
               <TiArrowBackOutline className={css.icon} size={15} />
               Back
-            </NavLink>
+            </Link>
           </div>
         </div>
 
